@@ -27,11 +27,11 @@ const InputField: React.FC<InputFieldProps> = ({
   cl(label, name, type, value, placeholder, className, icon, onChange);
 
   return (
-    <div className={`relative flex items-center justify-center h-[3rem] min-w-[15rem] outline outline-[1px] outline-slate-400 rounded-[8px] ${className}`}>
+    <div className={`relative flex items-center justify-center h-[2.5rem] min-w-[12rem] outline outline-[1px] outline-slate-400 rounded-[8px] ${className}`}>
       {/* ::::::::::::::::::::::::::::::::::: LABEL */}
       <label 
         htmlFor={name} 
-        className='absolute top-[-1rem] left-[1rem] px-[0.5rem] py-[0.25rem] bg-white font-semibold text-[0.875rem] text-slate-500 '
+        className='absolute top-[-1rem] left-[1rem] px-[0.5rem] py-[0.25rem] bg-white font-semibold text-[0.75rem] text-slate-500 '
       >
         {label}
       </label>
