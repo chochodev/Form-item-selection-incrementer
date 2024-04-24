@@ -54,7 +54,7 @@ const Navbar = () => {
   const nav_link = 'text-[1.25rem] capitalize xl:text-[1.35rem] font-semibold w-full text-center text-slate-600 hover:text-slate-800 transition-all duration-250 ease-in-out';
 
   return (
-    <div className='fixed z-[50] top-0 left-0 h-max w-full bg-slate-600'>
+    <div className='sticky z-[50] top-0 left-0 h-max w-full bg-slate-600'>
       <div 
         className='relative z-[50] flex items-center justify-end lg:justify-center gap-[5rem] lg:gap-[20%] w-full py-[0.875rem] sm:py-[1rem] px-[5%] lg:px-[5rem] xl:px-[7.5rem]'
       >

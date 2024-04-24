@@ -137,7 +137,7 @@ const UploadEventComponent: React.FC<UploadEventComponentProps> = () => {
   };
 
   return (
-    <form onSubmit={HandleSubmit} className='flex flex-col gap-[1rem] w-full justify-center py-[5rem] '>
+    <form onSubmit={HandleSubmit} className='flex flex-col gap-[1rem] w-full justify-center py-[8rem] '>
       {floorImage && <img 
         src={floorImage} 
         alt={'floorplan'} 
@@ -162,7 +162,7 @@ const UploadEventComponent: React.FC<UploadEventComponentProps> = () => {
       </div>
       <button
         type="button"
-        className="flex items-center justify-center gap-[0.5rem] text-[1.25rem] font-semibold text-center h-[3rem] w-[8rem] mb-[-1.5rem] border-solid border-[2px] border-green-500 bg-green-100 hover:bg-green-500 text-green-500 hover:text-white rounded-[8px] ease-250"
+        className="flex items-center justify-center gap-[0.5rem] text-[1.25rem] font-semibold text-center h-[3rem] w-full mb-[-1.5rem] border-solid border-[2px] border-green-500 bg-green-100 hover:bg-green-500 text-green-500 hover:text-white rounded-[8px] ease-250"
         onClick={handleAddItem}
       >
         <p className='text-[0.875rem] '>Add Space</p>
@@ -171,7 +171,7 @@ const UploadEventComponent: React.FC<UploadEventComponentProps> = () => {
       <button
         type="submit"
         onClick={HandleSubmit}
-        className="flex items-center justify-center h-[3rem] w-[8rem] bg-blue-500 text-white rounded-[8px] mt-[1rem]"
+        className="flex items-center justify-center h-[3rem] w-full bg-blue-500 text-white rounded-[8px] mt-[1rem]"
       >
         Submit
       </button>
