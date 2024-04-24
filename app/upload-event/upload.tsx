@@ -1,4 +1,5 @@
 import React from 'react';
+import { RiUpload2Line } from 'react-icons/ri';
 
 interface UploadImageProps {
   label?: string; 
@@ -39,16 +40,20 @@ const UploadImage: React.FC<UploadImageProps> = ({
   };
 
   return (
-    <div className="flex flex-col space-x-6 mb-[1.5rem]">
+    <div className="flex flex-col space-x-6 ">
+      <span className='mb-2 text-[1.25rem] font-bold text-gray-900 dark:text-white'>{label}:</span>
       <label
         htmlFor={name}
-        className="flex flex-col gap-[1rem] "
+        className="flex flex-col justify-center items-center gap-[1rem] bg-slate-300 h-[25rem] w-full max-w-[45rem] rounded-[32px] border-solid border-[1px] border-slate-400 "
       >
-        <span className='mb-2 text-[1.25rem] font-bold text-gray-900 dark:text-white'>{label}:</span>
+        <div className='flex flex-col justify-center items-center'>
+          <RiUpload2Line className='text-[2.5rem] text-slate-600 ' />
+          <p className='text-[0.875rem] text-slate-500'>Upload Image</p>
+        </div>
         <span className='sr-only'>{name}</span>
 
         <input
-          className="block w-full text-md text-slate-500 file:mr-[1rem] file:py-[0.875rem] file:px-[1.25rem] file:rounded-full file:border-0 file:text-md file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+          className="block invisible w-full text-md text-slate-500 file:mr-[1rem] file:py-[0.875rem] file:px-[1.25rem] file:rounded-full file:border-0 file:text-md file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
           aria-describedby={`${name}_help`}
           id={name}
           name={name}

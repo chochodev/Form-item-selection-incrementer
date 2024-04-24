@@ -19,11 +19,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className='relative '>
         <Router>
           <Header />
           <DataProvider>
-            {children}
+            <section className='flex flex-col justify-center items-center bg-slate-200 px-[1.5rem] sm:px-[3rem] lg:px-[4rem]'>
+              {children}
+            </section>
           </DataProvider>
           <Footer />
         </Router>

@@ -2,11 +2,12 @@
 
 import React, { useState } from "react";
 import { FaPlus } from "react-icons/fa";
-import { RiDeleteBin6Line } from "react-icons/ri";
+import { RiDeleteBin6Line, RiProfileLine, RiMoneyDollarCircleLine } from "react-icons/ri";
+import { MdOutlineDriveFileRenameOutline } from "react-icons/md";
 import InputField from "@/components/input";
 import UploadImage from './upload';
 import { useData } from '../useContext';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { useNavigate } from 'react-router-dom';
 
 const cl = console.log.bind(console);
@@ -31,6 +32,7 @@ const ItemAppendForm: React.FC<{
         label="Name"
         name={`name-${index}`}
         type="text"
+        icon={<MdOutlineDriveFileRenameOutline className='text-[1.25rem] text-slate-400 ' />}
         value={item.name}
         placeholder="e.g. Living Room 1"
         onChange={(e: any) => onChange(index, "name", e.target.value)}
@@ -39,6 +41,7 @@ const ItemAppendForm: React.FC<{
         label="Alias"
         name={`alias-${index}`}
         type="text"
+        icon={<RiProfileLine className='text-[1.25rem] text-slate-400 ' />}
         value={item.alias}
         placeholder="e.g. LR 1"
         onChange={(e: any) => onChange(index, "alias", e.target.value)}
@@ -47,6 +50,7 @@ const ItemAppendForm: React.FC<{
         label="Price"
         name={`price-${index}`}
         type="number"
+        icon={<RiMoneyDollarCircleLine className='text-[1.25rem] text-slate-400 ' />}
         value={item.price}
         placeholder="e.g. 100"
         onChange={(e: any) => onChange(index, "price", e.target.value)}
@@ -64,9 +68,13 @@ const ItemAppendForm: React.FC<{
   );
 };
 
+interface UploadEventComponentProps {
+  router: any;
+}
+
 // Main component to manage the dynamic form
-const DynamicForm: React.FC = () => {
-  const route = useNavigate();
+const UploadEventComponent: React.FC<UploadEventComponentProps> = () => {
+  const router = useRouter();
 
   const { setFloorContextImage, setFloorContextItems } = useData();
 
@@ -81,7 +89,7 @@ const DynamicForm: React.FC = () => {
     let reader: any = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
-        setFloorImage(reader.result as string);
+      setFloorImage(reader.result as string);
     };
     reader.onerror = function (error: any) {
       cl('Change Image error: ', error);
@@ -116,48 +124,53 @@ const DynamicForm: React.FC = () => {
   };
 
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const HandleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setFloorContextImage(floorImage);
     setFloorContextItems(items);
+
+    const formData = [floorImage, items]
     
-    route.push('/book');
+    // const router = useRouter();
+    router.push('/book', {query: { data: JSON.stringify(formData)} })
+    // navigate('/book');
   };
 
   return (
-    <form onSubmit={handleSubmit} className='flex flex-col gap-[1rem] w-full max-w-[48rem] mx-auto py-[5rem] '>
+    <form onSubmit={HandleSubmit} className='flex flex-col gap-[1rem] w-full justify-center py-[5rem] '>
       {floorImage && <img 
         src={floorImage} 
         alt={'floorplan'} 
-        className='w-[25rem] min-w-[25rem] object-contain '
+        className='w-full max-w-[45rem] h-[25rem] object-contain '
       />}
-      <UploadImage
+      {!floorImage && <UploadImage
         name='floor-plan-image'
         label='Upload floor-plan'
         onChange={handleFloorImage}
-      />
-      <div className='flex flex-col gap-[1rem] '>
-        <p className='text-[1.25rem] font-bold text-slate-900'>List the name(s) and price(s) of the space(s) available in your floor plan image</p>
-      {items.map((item, index) => (
-        <ItemAppendForm
-          key={index}
-          item={item}
-          index={index}
-          onDelete={handleDeleteItem}
-          onChange={handleItemChange}
-        />
-      ))}
+      />}
+      <div className='flex flex-col gap-[2rem] max-h-[50%] '>
+        <p className='text-[1.25rem] font-bold text-slate-900'>Enter the Names and Prices for Available Floor Plan Spaces</p>
+        {items.map((item, index) => (
+          <ItemAppendForm
+            key={index}
+            item={item}
+            index={index}
+            onDelete={handleDeleteItem}
+            onChange={handleItemChange}
+          />
+        ))}
       </div>
       <button
         type="button"
         className="flex items-center justify-center gap-[0.5rem] text-[1.25rem] font-semibold text-center h-[3rem] w-[8rem] mb-[-1.5rem] border-solid border-[2px] border-green-500 bg-green-100 hover:bg-green-500 text-green-500 hover:text-white rounded-[8px] ease-250"
         onClick={handleAddItem}
       >
+        <p className='text-[0.875rem] '>Add Space</p>
         <FaPlus />
       </button>
       <button
         type="submit"
-        onClick={handleSubmit}
+        onClick={HandleSubmit}
         className="flex items-center justify-center h-[3rem] w-[8rem] bg-blue-500 text-white rounded-[8px] mt-[1rem]"
       >
         Submit
@@ -166,4 +179,4 @@ const DynamicForm: React.FC = () => {
   );
 };
 
-export default DynamicForm;
+export default UploadEventComponent;

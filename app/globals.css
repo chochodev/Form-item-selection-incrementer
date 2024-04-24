@@ -2,13 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 :root {
-  --main-font: 'Roboto', sans-serif;
+  --main-font: "Inter", sans-serif;
 }
 
 * {
-  font-family: var(--main-font);
+  font-family: "Inter", sans-serif, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   padding: 0;
   margin: 0;
   box-sizing: border-box;

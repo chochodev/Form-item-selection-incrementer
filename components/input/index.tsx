@@ -24,14 +24,12 @@ const InputField: React.FC<InputFieldProps> = ({
   onChange
 }) => {
 
-  cl(label, name, type, value, placeholder, className, icon, onChange);
-
   return (
-    <div className={`relative flex items-center justify-center h-[2.5rem] min-w-[12rem] outline outline-[1px] outline-slate-400 rounded-[8px] ${className}`}>
+    <div className={`relative flex items-center justify-center h-[2.5rem] min-w-[15rem] outline outline-[1px] outline-slate-400 rounded-[8px] ${className}`}>
       {/* ::::::::::::::::::::::::::::::::::: LABEL */}
       <label 
         htmlFor={name} 
-        className='absolute top-[-1rem] left-[1rem] px-[0.5rem] py-[0.25rem] bg-white font-semibold text-[0.75rem] text-slate-500 '
+        className='absolute top-[-1rem] left-[1rem] px-[0.5rem] py-[0.25rem] bg-slate-200 font-semibold text-[0.75rem] text-slate-500 '
       >
         {label}
       </label>
@@ -45,7 +43,7 @@ const InputField: React.FC<InputFieldProps> = ({
         placeholder={placeholder}
         onChange={onChange}
         autoComplete="off"
-        className="w-full h-full text-[1.05rem] text-slate-500 pl-[0.5rem] "
+        className="w-full h-full text-[1.05rem] bg-slate-200 placeholder:text-slate-500 text-slate-700 pl-[0.5rem] rounded-[8px]"
       />
 
       {/* ::::::::::::::::::::::::::::::::::: ICON */}
