@@ -61,9 +61,9 @@ const UploadImage: React.FC<UploadImageProps> = ({
       {errorMessage && 
         <p className="mt-1 text-sm text-red-500">{errorMessage}</p>
       }
-      <p className="mt-1 text-[0.75rem] text-slate-500" id={`${name}_help`}>
+      {/* <p className="mt-1 text-[0.75rem] text-slate-500" id={`${name}_help`}>
         Supported file types: {accept.replace(/\//g, ', ')} (MAX. {Math.floor(maxSize / (1024 * 1024))}MB).
-      </p>
+      </p> */}
     </div>
   )
 }

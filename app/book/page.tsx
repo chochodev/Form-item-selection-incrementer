@@ -1,16 +1,25 @@
 "use client";
-import React from 'react';
 
-interface BookProps {
-  name?: string;
-  alias?: string;
-  price?: number;
-}
+import React from "react";
+import { useData } from "../useContext";
 
-const Book: React.FC<BookProps> = () => {
+const DisplayComponent: React.FC = () => {
+  const { floorContextImage, floorContextItems } = useData();
+
   return (
-    <div>Book</div>
-  )
-}
+    <div>
+      {floorContextImage && 
+      <img src={floorContextImage} alt="Floor Plan" />
+      }
+      <ul>
+        {floorContextItems.map((item, index) => (
+          <li key={index}>
+            {item.name} - {item.alias} - {item.price}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
-export default Book
+export default DisplayComponent;

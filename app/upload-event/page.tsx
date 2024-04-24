@@ -5,7 +5,9 @@ import { FaPlus } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import InputField from "@/components/input";
 import UploadImage from './upload';
-import Image from 'next/image';
+import { useData } from '../useContext';
+import { useRouter } from 'next/router';
+import { useNavigate } from 'react-router-dom';
 
 const cl = console.log.bind(console);
 
@@ -64,6 +66,9 @@ const ItemAppendForm: React.FC<{
 
 // Main component to manage the dynamic form
 const DynamicForm: React.FC = () => {
+  const route = useNavigate();
+
+  const { setFloorContextImage, setFloorContextItems } = useData();
 
   // :::::::::::::::::::::::::::::::::::::::::::: IMAGE SECTION FUNCTION
   const [floorImage, setFloorImage] = useState<string>("");
@@ -72,10 +77,11 @@ const DynamicForm: React.FC = () => {
   const handleFloorImage = (event: any) => {
     var file = event.target.files[0];
     if (file === null) return;
+
     let reader: any = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
-        setFloorImage(reader.result);
+        setFloorImage(reader.result as string);
     };
     reader.onerror = function (error: any) {
       cl('Change Image error: ', error);
@@ -108,9 +114,14 @@ const DynamicForm: React.FC = () => {
       )
     );
   };
+
+  
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    cl("Form submitted", floorImage, items);
+    setFloorContextImage(floorImage);
+    setFloorContextItems(items);
+    
+    route.push('/book');
   };
 
   return (
@@ -146,6 +157,7 @@ const DynamicForm: React.FC = () => {
       </button>
       <button
         type="submit"
+        onClick={handleSubmit}
         className="flex items-center justify-center h-[3rem] w-[8rem] bg-blue-500 text-white rounded-[8px] mt-[1rem]"
       >
         Submit
