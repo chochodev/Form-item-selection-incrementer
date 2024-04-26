@@ -30,7 +30,7 @@ const ItemAppendForm: React.FC<{
   onChange: (index: number, field: keyof ItemData, value: string | number) => void;
 }> = ({ item, index, onDelete, onChange }) => {
   return (
-    <div className="flex md:flex-col gap-[0.5rem] items-center">
+    <div className="flex md:flex-col gap-[0.5rem] items-center max-w-[45rem] w-full ">
       <InputField
         label="Name"
         name={`name-${index}`}
@@ -42,7 +42,7 @@ const ItemAppendForm: React.FC<{
         onChange={(e: any) => onChange(index, "name", e.target.value)}
       />
           
-      <div className='flex gap-[0.5rem]'>
+      <div className='flex sm:flex-row flex-col gap-[0.5rem] mt-[1.5rem] '>
         <InputField
           label="Alias"
           name={`alias-${index}`}
@@ -84,7 +84,7 @@ const ItemAppendForm: React.FC<{
       {/* BUTTON */}
       <button
         type="button"
-        className="flex items-center justify-center h-[2.5rem] min-w-[2.5rem] rounded-[8px] bg-red-500 text-white"
+        className="flex items-center justify-center sm:justify-self-end h-[2.5rem] min-w-[2.5rem] rounded-[8px] bg-red-500 text-white"
         onClick={() => onDelete(index)}
       >
         <RiDeleteBin6Line />
@@ -105,7 +105,7 @@ const UploadEventComponent: React.FC<UploadEventComponentProps> = () => {
   const { setFloorContextImage, setFloorContextItems } = useData();
 
   // :::::::::::::::::::::::::::::::::::::::::::: IMAGE SECTION FUNCTION
-  const [floorImage, setLocalFloorImage] = useState<string>("/assets/images/floor-plan.jpg");
+  const [floorImage, setLocalFloorImage] = useState<string>("");
 
   // :::::::::::::::::::::::::::::::::: IMAGE UPLOAD FUNCTIONS
   const handleFloorImage = (event: any) => {
@@ -160,14 +160,18 @@ const UploadEventComponent: React.FC<UploadEventComponentProps> = () => {
   };
 
   return (
-    <form onSubmit={HandleSubmit} className='flex flex-col gap-[1rem] w-full justify-center py-[8rem] '>
+    <form onSubmit={HandleSubmit} className='flex flex-col gap-[1rem] w-full justify-center px-[1rem] sm:px-[2rem] py-[2rem] '>
       
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img 
-        src={floorImage} 
-        alt={'floorplan'} 
-        className='w-full max-w-[45rem] h-[25rem] mx-auto object-contain border-solid border-[2px] border-teal-500 rounded-[8px] shadow-sm '
-      />
+      {floorImage && (
+        <>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img 
+          src={floorImage} 
+          alt={'floorplan'} 
+          className='w-full max-w-[45rem] h-[25rem] mx-auto object-contain border-solid border-[2px] border-teal-500 rounded-[8px] shadow-sm '
+        />
+        </>
+      )}
       {!floorImage && 
         <UploadImage
           name='floor-plan-image'
@@ -178,7 +182,7 @@ const UploadEventComponent: React.FC<UploadEventComponentProps> = () => {
       {floorImage && 
       <label 
         htmlFor='floor-image' 
-        className='relative z-[1] w-max mx-auto py-[0.875rem] md:py-[1rem] px-[0.875rem] md:px-[1.5rem] border-solid border-[1px] border-slate-600 rounded-[8px] hover:bg-teal-200 ease-250 '
+        className='relative z-[1] w-max mx-auto py-[0.5rem] md:py-[0.875rem] px-[0.875rem] md:px-[1.25rem] border-solid border-[1px] border-slate-600 rounded-[8px] hover:bg-teal-200 ease-250 '
       >
         <span className='text-slate-700 font-[600] text-[0.875rem] md:text-[1.05rem] uppercase '>Select New Floor-Plan</span>
         <input 

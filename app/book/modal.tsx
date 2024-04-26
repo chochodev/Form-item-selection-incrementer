@@ -36,22 +36,22 @@ const Modal: React.FC<ModalProps> = ({
           </div>
 
           <div className='flex flex-wrap gap-[1rem] '>
-            <div className='flex flex-col gap-[0.5rem] w-[45%] bg-teal-50 py-[0.875rem] px-[0.5rem] rounded-[4px] '>
+            <div className='flex flex-col gap-[0.5rem] w-[45%] bg-teal-50 border-solid border-[1px] border-teal-200 py-[0.875rem] px-[0.5rem] rounded-[8px] '>
               <p className='text-teal-600 text-[0.75rem] '>Name:</p>
               <span className='text-teal-800 text-[1rem] '>{item.name}</span>
             </div>
 
-            <div className='flex flex-col gap-[0.5rem] w-[45%] bg-teal-50 py-[0.875rem] px-[0.5rem] rounded-[4px] '>
+            <div className='flex flex-col gap-[0.5rem] w-[45%] bg-teal-50 border-solid border-[1px] border-teal-200 py-[0.875rem] px-[0.5rem] rounded-[8px] '>
               <p className='text-teal-600 text-[0.75rem] '>Price:</p>
               <span className='text-teal-800 text-[1rem] '>{item.price}</span>
             </div>
 
-            <div className='flex flex-col gap-[0.5rem] w-[45%] bg-teal-50 py-[0.875rem] px-[0.5rem] rounded-[4px] '>
+            <div className='flex flex-col gap-[0.5rem] w-[45%] bg-teal-50 border-solid border-[1px] border-teal-200 py-[0.875rem] px-[0.5rem] rounded-[8px] '>
               <p className='text-teal-600 text-[0.75rem] '>People:</p>
               <span className='text-teal-800 text-[1rem] '>{item.people}</span>
             </div>
 
-            <div className='flex flex-col gap-[0.5rem] w-[45%] bg-teal-50 py-[0.875rem] px-[0.5rem] rounded-[4px] '>
+            <div className='flex flex-col gap-[0.5rem] w-[45%] bg-teal-50 border-solid border-[1px] border-teal-200 py-[0.875rem] px-[0.5rem] rounded-[8px] '>
               <p className='text-teal-600 text-[0.75rem] '>Bottle(s):</p>
               <span className='text-teal-800 text-[1rem] '>{item.bottles}</span>
             </div>
@@ -65,7 +65,7 @@ const Modal: React.FC<ModalProps> = ({
             </button>
           </div>
 
-          <button className='flex items-center justify-center h-[3rem] w-full mx-auto bg-teal-700 text-white hover:bg-teal-900 hover:text-teal-200 rounded-[8px] '>Book</button>
+          <a href='/' className='flex items-center justify-center h-[3rem] w-full mx-auto bg-teal-700 text-white hover:bg-teal-900 hover:text-teal-200 rounded-[8px] '>Book</a>
         </div>
       </div>
     </>

@@ -60,11 +60,6 @@ const Book: React.FC<BookProps> = () => {
       </ul>
       {openModal &&
         <Modal 
-          // name={modalData.name} 
-          // alias={modalData.alias}
-          // people={modalData.people}
-          // bottles={modalData.bottles}
-          // price={modalData.price}
           {...modalData}
           onClick={()=>{
             setOpenModal(false);

@@ -41,12 +41,12 @@ const UploadImage: React.FC<UploadImageProps> = ({
 
   return (
     <div className="flex flex-col space-x-6 ">
-      <span className='mb-2 text-[1.25rem] font-bold text-gray-900 dark:text-white'>{label}:</span>
+      <span className='mb-2 text-[1.25rem] font-bold text-teal-900 dark:text-white'>{label}:</span>
       <label
         htmlFor={name}
         className="flex flex-col justify-center items-center gap-[1rem] bg-slate-300 h-[25rem] w-full max-w-[45rem] rounded-[32px] border-dotted border-[1px] border-slate-400 "
       >
-        <div className='flex flex-col justify-center items-center'>
+        <div className='flex flex-col justify-center items-center gap-[1rem] '>
           <RiUploadLine className='text-[2.5rem] text-slate-600 ' />
           <p className='text-[0.875rem] text-slate-400'>Drag and Drop or</p>
           <p className='text-[0.875rem] text-slate-400'>Upload Image</p>
