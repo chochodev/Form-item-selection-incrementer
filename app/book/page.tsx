@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { useData } from "../useContext";
 import { useRouter } from 'next/navigation';
+import { useDispatch, useSelector } from 'react-redux';
 // import img1 from '@/assets/images/lorem.jpg';
 
 const cl = console.log.bind(console);

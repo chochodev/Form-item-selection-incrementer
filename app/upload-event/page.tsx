@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import floorSlice, { setFloorImage, setItems } from '@/redux/reducers/floorSlice';
 import { FaPlus } from "react-icons/fa";
 import { RiDeleteBin6Line, RiProfileLine, RiMoneyDollarCircleLine } from "react-icons/ri";
 import { MdOutlineDriveFileRenameOutline } from "react-icons/md";
@@ -8,7 +10,6 @@ import InputField from "@/components/input";
 import UploadImage from './upload';
 import { useData } from '../useContext';
 import { useRouter } from 'next/navigation';
-import { useNavigate } from 'react-router-dom';
 
 const cl = console.log.bind(console);
 
@@ -72,14 +73,15 @@ interface UploadEventComponentProps {
   router: any;
 }
 
-// Main component to manage the dynamic form
+// :::::::::::::: Main component to manage the dynamic form
 const UploadEventComponent: React.FC<UploadEventComponentProps> = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const { setFloorContextImage, setFloorContextItems } = useData();
 
   // :::::::::::::::::::::::::::::::::::::::::::: IMAGE SECTION FUNCTION
-  const [floorImage, setFloorImage] = useState<string>("");
+  const [floorImage, setLocalFloorImage] = useState<string>("");
 
   // :::::::::::::::::::::::::::::::::: IMAGE UPLOAD FUNCTIONS
   const handleFloorImage = (event: any) => {
@@ -89,25 +91,24 @@ const UploadEventComponent: React.FC<UploadEventComponentProps> = () => {
     let reader: any = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
-      setFloorImage(reader.result as string);
+      setLocalFloorImage(reader.result as string);
+      dispatch(setFloorImage(reader.result as string));
     };
     reader.onerror = function (error: any) {
       cl('Change Image error: ', error);
     };
   };
 
-  const [items, setItems] = useState<ItemData[]>([
-    { name: "", alias: "", price: "" },
-  ]);
+  const items = useSelector((state: any) => state.floor.items);
 
   // :::::::::::::::::::::::::::::::::::::::::::: ADD FUNCTION
   const handleAddItem = () => {
-    setItems([...items, { name: "", alias: "", price: "" }]);
+    dispatch(setItems([...items, { name: "", alias: "", price: "" }]));
   };
 
   // :::::::::::::::::::::::::::::::::::::::::::: DELETE FUNCTION
   const handleDeleteItem = (index: number) => {
-    setItems(items.filter((_, i) => i !== index));
+    dispatch(setItems(items.filter((_: any, i: number) => i !== index)));
   };
 
   // :::::::::::::::::::::::::::::::::::::::::::: ITEM CHANGE FUNCTION
@@ -117,7 +118,7 @@ const UploadEventComponent: React.FC<UploadEventComponentProps> = () => {
     value: string | number
   ) => {
     setItems(
-      items.map((item, i) =>
+      items.map((item: any, i: number) =>
         i === index ? { ...item, [field]: value } : item
       )
     );
@@ -130,10 +131,8 @@ const UploadEventComponent: React.FC<UploadEventComponentProps> = () => {
     setFloorContextItems(items);
 
     const formData = [floorImage, items]
-    
-    // const router = useRouter();
-    router.push('/book', {query: { data: JSON.stringify(formData)} })
-    // navigate('/book');
+  
+    router.push('/book');
   };
 
   return (
@@ -150,7 +149,7 @@ const UploadEventComponent: React.FC<UploadEventComponentProps> = () => {
       />}
       <div className='flex flex-col gap-[2rem] max-h-[50%] '>
         <p className='text-[1.25rem] font-bold text-slate-900'>Enter the Names and Prices for Available Floor Plan Spaces</p>
-        {items.map((item, index) => (
+        {items.map((item: any, index: number) => (
           <ItemAppendForm
             key={index}
             item={item}

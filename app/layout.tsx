@@ -6,6 +6,8 @@ import Header from "./_layouts/header";
 import Footer from "./_layouts/footer";
 import { DataProvider } from "./useContext";
 import { BrowserRouter as Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { store } from '@/redux/store'; // Import your store
 
 // export const metadata: Metadata = {
 //   title: "Event Planner",
@@ -20,6 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className='relative '>
+      <Provider store={store}>
         <Router>
           <Header />
           <DataProvider>
@@ -29,6 +32,7 @@ export default function RootLayout({
           </DataProvider>
           <Footer />
         </Router>
+      </Provider>
       </body>
     </html>
   );

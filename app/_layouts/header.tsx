@@ -56,8 +56,8 @@ const Header: React.FC = () => {
             >
               <span className="sr-only">Open main menu</span>
             
-              <RiMenuLine className={`${isMobileView? 'visible relative' : 'absolute right-[1rem] '} bg-slate-500/10 hover:bg-slate-500/20 rounded-[8px] p-[.45rem] text-slate-500 active:text-[#ffffff] text-[2.75rem] transition-all ease-in-out duration-200 `} />
-              <RiCloseFill  className={`${!isMobileView? 'visible relative' : 'absolute right-[1rem] '} bg-slate-500/10 hover:bg-slate-500/20 rounded-[8px] p-[.45rem] text-slate-500 active:text-[#ffffff] text-[2.75rem] transition-all ease-in-out duration-200 `} />
+              <RiMenuLine className={`${isMobileView? 'visible relative' : 'absolute right-[1rem] '} rounded-[8px] p-[.45rem] text-slate-500 text-[2.75rem] ease-250 `} />
+              <RiCloseFill  className={`${!isMobileView? 'visible relative' : 'absolute right-[1rem] '} rounded-[8px] p-[.45rem] text-slate-500 text-[2.75rem] ease-250 `} />
               
 
           </button>
@@ -72,14 +72,15 @@ const Header: React.FC = () => {
           </ul>
         </div>
 
-        <div className={`absolute ${isMobileView? 'top-[100%] right-0 opacity-[100%] select-auto z-[50] visible' : 'top-[100%] right-[.5rem] opacity-0 select-none z-[-5] invisible'} lg:hidden flex flex-col items-center h-max w-[15rem] gap-[2.125rem] xl:gap-[2.8125rem] bg-teal-700 px-[2rem] py-[0.5rem] rounded-[8px] ease-250 overflow-hidden`}>
+        {/* ::::::::::::::::::::::::::::::::::::::::::: MOBILE VIEW NAV */}
+        <div className={`absolute ${isMobileView? 'top-[100%] right-0 opacity-[100%] select-auto z-[50] visible' : 'top-[100%] right-[.5rem] opacity-0 select-none z-[-5] invisible'} lg:hidden flex flex-col items-center h-max w-[17rem] gap-[1.5rem] xl:gap-[2.8125rem] bg-teal-900 px-[1rem] py-[1.5rem] rounded-[8px] ease-250 overflow-hidden`}>
         {navLinks.map((link: any, index: number) => (
           <Link 
             key={index} 
             onClick={closeMobileNav} 
             to={link.link} 
             offset={-80} 
-            className={'text-[1.25rem] capitalize xl:text-[1.35rem] font-semibold w-full text-center text-teal-200 hover:text-teal-100 bg-[#ffffff]/20 py-[0.875rem] rounded-[8px] ease-250 '}
+            className={'text-[0.875rem] capitalize xl:text-[1.35rem] font-semibold w-full text-center text-teal-50 hover:text-teal-300 hover:bg-[#ffffff]/20 py-[0.5rem] rounded-[8px] ease-250 '}
           >
             {link.name}
           </Link>
