@@ -44,7 +44,7 @@ const UploadImage: React.FC<UploadImageProps> = ({
       <span className='mb-2 text-[1.25rem] font-bold text-teal-900 dark:text-white'>{label}:</span>
       <label
         htmlFor={name}
-        className="flex flex-col justify-center items-center gap-[1rem] bg-slate-300 h-[25rem] w-full max-w-[45rem] rounded-[32px] border-dotted border-[1px] border-slate-400 "
+        className="flex flex-col justify-center items-center gap-[1rem] bg-slate-300 h-[25rem] w-full max-w-[45rem] rounded-[32px] border-dashed border-[1px] border-slate-400 "
       >
         <div className='flex flex-col justify-center items-center gap-[1rem] '>
           <RiUploadLine className='text-[2.5rem] text-slate-600 ' />
