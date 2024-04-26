@@ -25,7 +25,7 @@ const InputField: React.FC<InputFieldProps> = ({
 }) => {
 
   return (
-    <div className={`relative flex items-center justify-center h-[25rem] min-w-[15rem] outline outline-[1px] outline-slate-400 rounded-[8px] ${className}`}>
+    <div className={`relative flex items-center justify-center h-[2.5rem] min-w-[15rem] outline outline-[1px] outline-slate-400 rounded-[8px] ${className}`}>
       {/* ::::::::::::::::::::::::::::::::::: LABEL */}
       <label 
         htmlFor={name} 
