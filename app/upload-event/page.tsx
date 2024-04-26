@@ -30,14 +30,14 @@ const ItemAppendForm: React.FC<{
   onChange: (index: number, field: keyof ItemData, value: string | number) => void;
 }> = ({ item, index, onDelete, onChange }) => {
   return (
-    <div className="flex flex-col gap-[0.5rem] items-center max-w-[45rem] w-[5.5rem] lg:w-full ">
+    <div className="flex flex-col gap-[0.5rem] items-center max-w-[45rem] lg:w-full ">
       <InputField
         label="Name"
         name={`name-${index}`}
         type="text"
         icon={<MdOutlineDriveFileRenameOutline className='text-[1.25rem] text-slate-400 ' />}
         value={item.name}
-        className='w-full'
+        className=' w-[5.5rem] lg:w-full'
         placeholder="e.g. Parlour 1"
         onChange={(e: any) => onChange(index, "name", e.target.value)}
       />
