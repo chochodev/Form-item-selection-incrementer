@@ -30,7 +30,7 @@ const ItemAppendForm: React.FC<{
   onChange: (index: number, field: keyof ItemData, value: string | number) => void;
 }> = ({ item, index, onDelete, onChange }) => {
   return (
-    <div className="flex md:flex-col gap-[0.5rem] items-center max-w-[45rem] w-full ">
+    <div className="flex lg:flex-col gap-[0.5rem] items-center max-w-[45rem] w-full ">
       <InputField
         label="Name"
         name={`name-${index}`}
