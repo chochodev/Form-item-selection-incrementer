@@ -37,7 +37,7 @@ const ItemAppendForm: React.FC<{
         type="text"
         icon={<MdOutlineDriveFileRenameOutline className='text-[1.25rem] text-slate-400 ' />}
         value={item.name}
-        className=' w-[5.5rem] lg:w-full'
+        className=' w-[10rem] lg:w-full'
         placeholder="e.g. Parlour 1"
         onChange={(e: any) => onChange(index, "name", e.target.value)}
       />
