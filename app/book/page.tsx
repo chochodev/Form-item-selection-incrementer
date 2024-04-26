@@ -8,11 +8,7 @@ import Modal from './modal';
 
 const cl = console.log.bind(console);
 
-interface BookProps {
-  router: any;
-}
-
-const Book: React.FC<BookProps> = () => {
+const Book = () => {
   const router = useRouter();
 
   const floorImage = useSelector((state: any) => state.floorData.floorImage);
