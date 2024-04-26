@@ -1,5 +1,5 @@
 import React from 'react';
-import { RiUpload2Line } from 'react-icons/ri';
+import { RiUploadLine } from 'react-icons/ri';
 
 interface UploadImageProps {
   label?: string; 
@@ -44,11 +44,12 @@ const UploadImage: React.FC<UploadImageProps> = ({
       <span className='mb-2 text-[1.25rem] font-bold text-gray-900 dark:text-white'>{label}:</span>
       <label
         htmlFor={name}
-        className="flex flex-col justify-center items-center gap-[1rem] bg-slate-300 h-[25rem] w-full max-w-[45rem] rounded-[32px] border-solid border-[1px] border-slate-400 "
+        className="flex flex-col justify-center items-center gap-[1rem] bg-slate-300 h-[25rem] w-full max-w-[45rem] rounded-[32px] border-dotted border-[1px] border-slate-400 "
       >
         <div className='flex flex-col justify-center items-center'>
-          <RiUpload2Line className='text-[2.5rem] text-slate-600 ' />
-          <p className='text-[0.875rem] text-slate-500'>Upload Image</p>
+          <RiUploadLine className='text-[2.5rem] text-slate-600 ' />
+          <p className='text-[0.875rem] text-slate-400'>Drag and Drop or</p>
+          <p className='text-[0.875rem] text-slate-400'>Upload Image</p>
         </div>
         <span className='sr-only'>{name}</span>
 

@@ -4,6 +4,8 @@ export interface ItemData {
   name: string;
   alias: string;
   price: string;
+  people: string;
+  bottles: string;
 }
 interface FloorState {
   floorImage: string;

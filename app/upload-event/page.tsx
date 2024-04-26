@@ -18,6 +18,8 @@ interface ItemData {
   name: string;
   alias: string;
   price: string;
+  people: string;
+  bottles: string;
 }
 
 // Component for individual item inputs
@@ -55,6 +57,24 @@ const ItemAppendForm: React.FC<{
         value={item.price}
         placeholder="e.g. 100"
         onChange={(e: any) => onChange(index, "price", e.target.value)}
+      />
+      <InputField
+        label="People"
+        name={`people-${index}`}
+        type="number"
+        icon={<RiMoneyDollarCircleLine className='text-[1.25rem] text-slate-400 ' />}
+        value={item.people}
+        placeholder="e.g. 3"
+        onChange={(e: any) => onChange(index, "people", e.target.value)}
+      />
+      <InputField
+        label="Bottles"
+        name={`bottles-${index}`}
+        type="number"
+        icon={<RiMoneyDollarCircleLine className='text-[1.25rem] text-slate-400 ' />}
+        value={item.bottles}
+        placeholder="e.g. 5"
+        onChange={(e: any) => onChange(index, "bottles", e.target.value)}
       />
 
       {/* BUTTON */}
@@ -103,7 +123,7 @@ const UploadEventComponent: React.FC<UploadEventComponentProps> = () => {
 
   // :::::::::::::::::::::::::::::::::::::::::::: ADD FUNCTION
   const handleAddItem = () => {
-    dispatch(setItems([...items, { name: "", alias: "", price: "" }]));
+    dispatch(setItems([...items, { name: "", alias: "", price: "", people: "", bottles: "" }]));
   };
 
   // :::::::::::::::::::::::::::::::::::::::::::: DELETE FUNCTION
@@ -149,8 +169,22 @@ const UploadEventComponent: React.FC<UploadEventComponentProps> = () => {
         label='Upload floor-plan'
         onChange={handleFloorImage}
       />}
+      {floorImage && 
+      <label 
+        htmlFor='floor-image' 
+        className='relative z-[1] w-max mx-auto py-[0.875rem] md:py-[1rem] px-[0.875rem] md:px-[1.5rem] border-solid border-[1px] border-slate-600 rounded-[8px] hover:bg-teal-200 ease-250 '
+      >
+        <span className='text-slate-700 font-[600] text-[0.875rem] md:text-[1.05rem] uppercase '>Select New Floor-Plan</span>
+        <input 
+          type='file'
+          id='floor-image'
+          onChange={handleFloorImage}
+          className='invisible z-[2] absolute top-0 left-0 h-full w-full '
+        />
+      </label>
+      }
       <div className='flex flex-col gap-[2rem] max-h-[50%] '>
-        <p className='text-[1.25rem] font-bold text-slate-900'>Enter the Names and Prices for Available Floor Plan Spaces</p>
+        <p className='text-[1.25rem] font-bold text-slate-900'>Enter the Spaces Details as Follows </p>
         {items.map((item: any, index: number) => (
           <ItemAppendForm
             key={index}
