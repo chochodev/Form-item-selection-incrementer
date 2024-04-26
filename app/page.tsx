@@ -1,17 +1,18 @@
 "use client";
 
 import { useEffect } from 'react';
-import Image from "next/image";
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
-  useEffect(()=> {
-    window.
-    // window.url.push('/upload-event');
-  }, []);
-  
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push('/upload-event');
+  }, [router]); 
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      Home
+    <main className="flex min-h-screen flex-col items-center justify-center p-24">
+      HOME Page -- Redirecting...
     </main>
   );
 }
