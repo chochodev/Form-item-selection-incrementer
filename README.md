@@ -1,5 +1,9 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## SPACE BOOKED
+This is the booking-space app base functionalities
+After starting the server:
+- Go to /upload-event to create an event
 
+It uses redux to store the states locally for now until integrated appropriately.
 ## Getting Started
 
 First, run the development server:
