@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { useRouter } from 'next/navigation';
 import { useDispatch, useSelector } from 'react-redux';
+import Modal from './modal';
 // import img1 from '@/assets/images/lorem.jpg';
 
 const cl = console.log.bind(console);
@@ -103,6 +104,7 @@ const Book: React.FC<BookProps> = () => {
       people: '5',
       bottles: '6'
     },
+    ...items,
   ])
 
   // const { floorContextImage, floorContextItems } = useData();
@@ -134,7 +136,7 @@ const Book: React.FC<BookProps> = () => {
             className="h-[4rem] w-[4rem] "
           >
             <button 
-
+              onClick={handleOnClick(index)}
               type="button" 
               className="text-teal-900 bg-white border-solid border border-teal-100 focus:outline-none hover:border-teal-300 focus:ring-4 focus:ring-teal-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 ease-250">
                 <p className='font-[600] text-teal-600 '>{item.alias}</p>
@@ -148,6 +150,17 @@ const Book: React.FC<BookProps> = () => {
           
         ))}
       </ul>
+      {openModal &&
+        <Modal 
+          // name={modalData.name} 
+          // alias={modalData.alias}
+          // people={modalData.people}
+          // bottles={modalData.bottles}
+          // price={modalData.price}
+          {...modalData}
+          onClick={setOpenModal(false)} 
+        />
+      }
     </div>
   );
 };

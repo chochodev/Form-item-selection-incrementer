@@ -1,63 +1,64 @@
 import React from 'react';
+import  { RiCloseLine } from 'react-icons/ri';
 
 interface ModalProps {
-  name: string;
-  alias: string;
+  name?: string;
+  alias?: string;
+  people?: string;
+  bottles?: string;
+  price?: string;
+  onClick?: any;
 }
 
-const Modal: React.FC<ModalProps> = ({ 
-  name,
-  alias
- }) => {
+const Modal: React.FC<ModalProps> = ({
+  onClick,
+  ...item
+}) => {
+  const handleCloseModal = (e: any) => {
+    e.stopPropagation()
+    onClick();
+  }
+
   return (
     <>
-    <button 
-      data-modal-target="modal-single-action" 
-      data-modal-toggle="modal-single-action" 
-      className="aegov-btn"
-      type="button">
-      Single Action
-    </button>
-
-    {/* Main Modal */}
-    <div id="modal-single-action" tabIndex={-1} aria-hidden="true" className="aegov-modal hidden z-50" role="dialog">
-      <div className="relative sm:w-full sm:max-w-sm max-h-full">
-        <div className="aegov-modal-wrapper py-4 md:py-5 xl:py-8 px-4 xl:px-6">
-          <button type="button" className="aegov-modal-close top-2 end-2" data-modal-hide="modal-single-action">
-            <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd"
-                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                clip-rule="evenodd"></path>
-            </svg>
-            <span className="sr-only">Close modal</span>
-          </button>
-          <div>
+      <div
+        onClick={handleCloseModal}
+        className='fixed z-10 top-0 left-0 flex justify-center items-center h-screen w-screen bg-teal-400/20  '
+      >
+        <div
+          onClick={(e)=>e.stopPropagation();} 
+          className='relative flex flex-col gap-[2rem] bg-white rounded-[16px] '
+        >
+          <div className='flex flex-col gap-[1rem] px-[1rem] py-[2rem] '>
             <div>
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-aegreen-50">
-                <svg className="h-6 w-6 text-aegreen-600" xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 256 256">
-                  <rect width="256" height="256" fill="none" />
-                  <polyline points="40 144 96 200 224 72" fill="none" stroke="currentColor"
-                    stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
-                </svg>
-              </div>
-              <div className="mt-3 text-center sm:mt-6">
-                <h3 className="text-lg font-bold text-aeblack-900" id="modal-title">Payment successful</h3>
-                <div className="mt-2">
-                  <p className="text-base text-aeblack-500">Lorem ipsum dolor sit amet consectetur
-                    adipisicing
-                    elit. Consequatur amet labore.</p>
-                </div>
-              </div>
+              <p>Name:</p>
+              <span>{item.name}</span>
             </div>
-            <div className="mt-5 sm:mt-6">
-              <button type="button" className="aegov-btn btn-block">Button</button>
+
+            <div>
+              <p>Price:</p>
+              <span>{item.price}</span>
             </div>
+
+            <div>
+              <p>People:</p>
+              <span>{item.people}</span>
+            </div>
+
+            <div>
+              <p>Bottle(s):</p>
+              <span>{item.bottles}</span>
+            </div>
+
+            {/* :::::::::::::::::::::::: CLOSE MODAL BUTTON */}
+            <button className='group absolute top-[1rem] right-[1rem] flex justify-center items-center h-[3rem] w-[3rem] rounded-[8px] hover:bg-teal-200 ease-250 '>
+              <RiCloseLine className='text-teal-900 text-[1rem] group-active:text-black ease-250 ' />
+            </button>
           </div>
+
+          <button>Book</button>
         </div>
       </div>
-    </div>
     </>
 
   )
