@@ -42,7 +42,7 @@ const ItemAppendForm: React.FC<{
         onChange={(e: any) => onChange(index, "name", e.target.value)}
       />
           
-      <div className='flex sm:flex-row flex-col gap-[0.5rem] mt-[1.5rem] '>
+      <div className='flex md:flex-row flex-col gap-[0.5rem] mt-[1.5rem] '>
         <InputField
           label="Alias"
           name={`alias-${index}`}

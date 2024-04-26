@@ -2,8 +2,11 @@
 This is the booking-space app base functionalities
 After starting the server:
 - Go to /upload-event to create an event
+- Fill in the form accordingly 
 
 It uses redux to store the states locally for now until integrated appropriately.
+
+
 ## Getting Started
 
 First, run the development server:
