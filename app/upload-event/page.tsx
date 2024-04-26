@@ -93,12 +93,8 @@ const ItemAppendForm: React.FC<{
   );
 };
 
-interface UploadEventComponentProps {
-  router: any;
-}
-
 // :::::::::::::: Main component to manage the dynamic form
-const UploadEventComponent: React.FC<UploadEventComponentProps> = () => {
+const UploadEventComponent = () => {
   const router = useRouter();
   const dispatch = useDispatch();
 
