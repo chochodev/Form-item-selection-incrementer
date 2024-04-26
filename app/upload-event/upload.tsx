@@ -40,7 +40,7 @@ const UploadImage: React.FC<UploadImageProps> = ({
   };
 
   return (
-    <div className="flex flex-col space-x-6 ">
+    <div className="flex flex-col mx-auto space-x-6 ">
       <span className='mb-2 text-[1.25rem] font-bold text-teal-900 pl-[2rem]'>{label}:</span>
       <label
         htmlFor={name}
