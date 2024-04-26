@@ -26,28 +26,28 @@ const Modal: React.FC<ModalProps> = ({
         className='fixed z-10 top-0 left-0 flex justify-center items-center h-screen w-screen bg-teal-400/20  '
       >
         <div
-          onClick={(e)=>e.stopPropagation();} 
-          className='relative flex flex-col gap-[2rem] bg-white rounded-[16px] '
+          onClick={(e)=>e.stopPropagation()} 
+          className='relative flex flex-col gap-[2rem] w-full md:w-[22rem] bg-white rounded-[16px] '
         >
           <div className='flex flex-col gap-[1rem] px-[1rem] py-[2rem] '>
-            <div>
-              <p>Name:</p>
-              <span>{item.name}</span>
+            <div className='flex flex-col gap-[0.5rem] w-[48%] bg-teal-50 py-[0.875rem] px-[0.5rem] rounded-[4px] '>
+              <p className='text-teal-600 text-[0.875rem] '>Name:</p>
+              <span className='text-teal-800 text-[1rem] '>{item.name}</span>
             </div>
 
-            <div>
-              <p>Price:</p>
-              <span>{item.price}</span>
+            <div className='flex flex-col gap-[0.5rem] w-[48%] bg-teal-50 py-[0.875rem] px-[0.5rem] rounded-[4px] '>
+              <p className='text-teal-600 text-[0.875rem] '>Price:</p>
+              <span className='text-teal-800 text-[1rem] '>{item.price}</span>
             </div>
 
-            <div>
-              <p>People:</p>
-              <span>{item.people}</span>
+            <div className='flex flex-col gap-[0.5rem] w-[48%] bg-teal-50 py-[0.875rem] px-[0.5rem] rounded-[4px] '>
+              <p className='text-teal-600 text-[0.875rem] '>People:</p>
+              <span className='text-teal-800 text-[1rem] '>{item.people}</span>
             </div>
 
-            <div>
-              <p>Bottle(s):</p>
-              <span>{item.bottles}</span>
+            <div className='flex flex-col gap-[0.5rem] w-[48%] bg-teal-50 py-[0.875rem] px-[0.5rem] rounded-[4px] '>
+              <p className='text-teal-600 text-[0.875rem] '>Bottle(s):</p>
+              <span className='text-teal-800 text-[1rem] '>{item.bottles}</span>
             </div>
 
             {/* :::::::::::::::::::::::: CLOSE MODAL BUTTON */}
