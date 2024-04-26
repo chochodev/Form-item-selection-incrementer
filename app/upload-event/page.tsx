@@ -28,7 +28,7 @@ const ItemAppendForm: React.FC<{
   onChange: (index: number, field: keyof ItemData, value: string | number) => void;
 }> = ({ item, index, onDelete, onChange }) => {
   return (
-    <div className="flex gap-[1rem] items-center">
+    <div className="flex md:flex-row flex-col gap-[1rem] items-center">
       <InputField
         label="Name"
         name={`name-${index}`}
@@ -81,7 +81,7 @@ const UploadEventComponent: React.FC<UploadEventComponentProps> = () => {
   const { setFloorContextImage, setFloorContextItems } = useData();
 
   // :::::::::::::::::::::::::::::::::::::::::::: IMAGE SECTION FUNCTION
-  const [floorImage, setLocalFloorImage] = useState<string>("");
+  const [floorImage, setLocalFloorImage] = useState<string>("/assets/images/floor-plan.jpg");
 
   // :::::::::::::::::::::::::::::::::: IMAGE UPLOAD FUNCTIONS
   const handleFloorImage = (event: any) => {
@@ -99,7 +99,7 @@ const UploadEventComponent: React.FC<UploadEventComponentProps> = () => {
     };
   };
 
-  const items = useSelector((state: any) => state.floor.items);
+  const items = useSelector((state: any) => state.floorData.items);
 
   // :::::::::::::::::::::::::::::::::::::::::::: ADD FUNCTION
   const handleAddItem = () => {
@@ -117,9 +117,11 @@ const UploadEventComponent: React.FC<UploadEventComponentProps> = () => {
     field: keyof ItemData,
     value: string | number
   ) => {
-    setItems(
-      items.map((item: any, i: number) =>
-        i === index ? { ...item, [field]: value } : item
+    dispatch(
+      setItems(
+        items.map((item: any, i: number) =>
+          i === index ? { ...item, [field]: value } : item
+        )
       )
     );
   };
@@ -129,19 +131,19 @@ const UploadEventComponent: React.FC<UploadEventComponentProps> = () => {
     e.preventDefault();
     setFloorContextImage(floorImage);
     setFloorContextItems(items);
-
-    const formData = [floorImage, items]
   
     router.push('/book');
   };
 
   return (
     <form onSubmit={HandleSubmit} className='flex flex-col gap-[1rem] w-full justify-center py-[8rem] '>
-      {floorImage && <img 
+      
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img 
         src={floorImage} 
         alt={'floorplan'} 
-        className='w-full max-w-[45rem] h-[25rem] object-contain '
-      />}
+        className='w-full max-w-[45rem] h-[25rem] object-contain border-solid border-[2px] border-teal-500 rounded-[8px] shadow-sm '
+      />
       {!floorImage && <UploadImage
         name='floor-plan-image'
         label='Upload floor-plan'

@@ -102,6 +102,8 @@ const Book: React.FC<BookProps> = () => {
     },
   ])
 
+  const items = useSelector((state: any) => state.floorData.items);
+
   // const { floorContextImage, floorContextItems } = useData();
   // cl('floor items', data);
 
@@ -115,7 +117,9 @@ const Book: React.FC<BookProps> = () => {
         className='h-[25rem] w-full max-w-[35rem] object-[0,0] object-fill rounded-[16px] '
       />
       }
-      <ul className='flex-1 w-full grid rows-6 '>
+
+      {/* :::::::::::::::::::::::::::: BUTTONS */}
+      <ul className='flex-1 w-full grid grid-cols-6 '>
         {floorContextItems.map((item, index) => (
           <li 
             key={index}

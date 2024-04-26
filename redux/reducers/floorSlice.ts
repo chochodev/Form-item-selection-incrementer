@@ -23,6 +23,7 @@ interface SetItemsAction {
   payload: ItemData[];
 }
 
+// :::::::::::::::::::::::::::: MAIN SLICE
 const floorSlice = createSlice({
   name: 'floorData',
   initialState,
