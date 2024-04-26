@@ -30,52 +30,56 @@ const ItemAppendForm: React.FC<{
   onChange: (index: number, field: keyof ItemData, value: string | number) => void;
 }> = ({ item, index, onDelete, onChange }) => {
   return (
-    <div className="flex md:flex-row flex-col gap-[1rem] items-center">
+    <div className="flex md:flex-col gap-[0.5rem] items-center">
       <InputField
         label="Name"
         name={`name-${index}`}
         type="text"
         icon={<MdOutlineDriveFileRenameOutline className='text-[1.25rem] text-slate-400 ' />}
         value={item.name}
-        placeholder="e.g. Living Room 1"
+        className='w-full'
+        placeholder="e.g. Parlour 1"
         onChange={(e: any) => onChange(index, "name", e.target.value)}
       />
-      <InputField
-        label="Alias"
-        name={`alias-${index}`}
-        type="text"
-        icon={<RiProfileLine className='text-[1.25rem] text-slate-400 ' />}
-        value={item.alias}
-        placeholder="e.g. LR 1"
-        onChange={(e: any) => onChange(index, "alias", e.target.value)}
-      />
-      <InputField
-        label="Price"
-        name={`price-${index}`}
-        type="number"
-        icon={<RiMoneyDollarCircleLine className='text-[1.25rem] text-slate-400 ' />}
-        value={item.price}
-        placeholder="e.g. 100"
-        onChange={(e: any) => onChange(index, "price", e.target.value)}
-      />
-      <InputField
-        label="People"
-        name={`people-${index}`}
-        type="number"
-        icon={<RiMoneyDollarCircleLine className='text-[1.25rem] text-slate-400 ' />}
-        value={item.people}
-        placeholder="e.g. 3"
-        onChange={(e: any) => onChange(index, "people", e.target.value)}
-      />
-      <InputField
-        label="Bottles"
-        name={`bottles-${index}`}
-        type="number"
-        icon={<RiMoneyDollarCircleLine className='text-[1.25rem] text-slate-400 ' />}
-        value={item.bottles}
-        placeholder="e.g. 5"
-        onChange={(e: any) => onChange(index, "bottles", e.target.value)}
-      />
+          
+      <div className='flex gap-[0.5rem]'>
+        <InputField
+          label="Alias"
+          name={`alias-${index}`}
+          type="text"
+          icon={<RiProfileLine className='text-[1.25rem] text-slate-400 ' />}
+          value={item.alias}
+          placeholder="e.g. P 1"
+          onChange={(e: any) => onChange(index, "alias", e.target.value)}
+        />
+        <InputField
+          label="Price"
+          name={`price-${index}`}
+          type="number"
+          icon={<RiMoneyDollarCircleLine className='text-[1.25rem] text-slate-400 ' />}
+          value={item.price}
+          placeholder="e.g. 100"
+          onChange={(e: any) => onChange(index, "price", e.target.value)}
+        />
+        <InputField
+          label="People"
+          name={`people-${index}`}
+          type="number"
+          icon={<RiMoneyDollarCircleLine className='text-[1.25rem] text-slate-400 ' />}
+          value={item.people}
+          placeholder="e.g. 3"
+          onChange={(e: any) => onChange(index, "people", e.target.value)}
+        />
+        <InputField
+          label="Bottles"
+          name={`bottles-${index}`}
+          type="number"
+          icon={<RiMoneyDollarCircleLine className='text-[1.25rem] text-slate-400 ' />}
+          value={item.bottles}
+          placeholder="e.g. 5"
+          onChange={(e: any) => onChange(index, "bottles", e.target.value)}
+        />
+      </div>
 
       {/* BUTTON */}
       <button
