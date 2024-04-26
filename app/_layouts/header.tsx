@@ -58,9 +58,7 @@ const Header: React.FC = () => {
             
               <RiMenuLine className={`${isMobileView? 'visible relative' : 'absolute right-[1rem] '} rounded-[8px] p-[.45rem] text-slate-500 text-[2.75rem] ease-250 `} />
               <RiCloseFill  className={`${!isMobileView? 'visible relative' : 'absolute right-[1rem] '} rounded-[8px] p-[.45rem] text-slate-500 text-[2.75rem] ease-250 `} />
-              
-
-          </button>
+            </button>
         </div>
         <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
           <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-teal-100 rounded-lg bg-teal-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white 0">

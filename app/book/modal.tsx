@@ -1,6 +1,8 @@
 import React from 'react';
 import  { RiCloseLine } from 'react-icons/ri';
 
+const cl = console.log.bind(console);
+
 interface ModalProps {
   name?: string;
   alias?: string;
@@ -23,40 +25,47 @@ const Modal: React.FC<ModalProps> = ({
     <>
       <div
         onClick={handleCloseModal}
-        className='fixed z-10 top-0 left-0 flex justify-center items-center h-screen w-screen bg-teal-400/20  '
+        className='fixed z-[8] top-0 left-0 flex justify-center items-center h-screen w-screen bg-teal-900/20 backdrop-blur-[10px] '
       >
         <div
           onClick={(e)=>e.stopPropagation()} 
-          className='relative flex flex-col gap-[2rem] w-full md:w-[22rem] bg-white rounded-[16px] '
+          className='relative z-10 flex flex-col gap-[2rem] w-full md:w-[22rem] bg-white rounded-[16px] px-[1rem] py-[1rem] '
         >
-          <div className='flex flex-col gap-[1rem] px-[1rem] py-[2rem] '>
-            <div className='flex flex-col gap-[0.5rem] w-[48%] bg-teal-50 py-[0.875rem] px-[0.5rem] rounded-[4px] '>
-              <p className='text-teal-600 text-[0.875rem] '>Name:</p>
+          <div className='flex justify-center items-center text-center w-full h-[3rem] '>
+            <p className='w-full text-teal-900 font-[600] text-[1rem] uppercase '>#{item.alias}</p>
+          </div>
+
+          <div className='flex flex-wrap gap-[1rem] '>
+            <div className='flex flex-col gap-[0.5rem] w-[45%] bg-teal-50 py-[0.875rem] px-[0.5rem] rounded-[4px] '>
+              <p className='text-teal-600 text-[0.75rem] '>Name:</p>
               <span className='text-teal-800 text-[1rem] '>{item.name}</span>
             </div>
 
-            <div className='flex flex-col gap-[0.5rem] w-[48%] bg-teal-50 py-[0.875rem] px-[0.5rem] rounded-[4px] '>
-              <p className='text-teal-600 text-[0.875rem] '>Price:</p>
+            <div className='flex flex-col gap-[0.5rem] w-[45%] bg-teal-50 py-[0.875rem] px-[0.5rem] rounded-[4px] '>
+              <p className='text-teal-600 text-[0.75rem] '>Price:</p>
               <span className='text-teal-800 text-[1rem] '>{item.price}</span>
             </div>
 
-            <div className='flex flex-col gap-[0.5rem] w-[48%] bg-teal-50 py-[0.875rem] px-[0.5rem] rounded-[4px] '>
-              <p className='text-teal-600 text-[0.875rem] '>People:</p>
+            <div className='flex flex-col gap-[0.5rem] w-[45%] bg-teal-50 py-[0.875rem] px-[0.5rem] rounded-[4px] '>
+              <p className='text-teal-600 text-[0.75rem] '>People:</p>
               <span className='text-teal-800 text-[1rem] '>{item.people}</span>
             </div>
 
-            <div className='flex flex-col gap-[0.5rem] w-[48%] bg-teal-50 py-[0.875rem] px-[0.5rem] rounded-[4px] '>
-              <p className='text-teal-600 text-[0.875rem] '>Bottle(s):</p>
+            <div className='flex flex-col gap-[0.5rem] w-[45%] bg-teal-50 py-[0.875rem] px-[0.5rem] rounded-[4px] '>
+              <p className='text-teal-600 text-[0.75rem] '>Bottle(s):</p>
               <span className='text-teal-800 text-[1rem] '>{item.bottles}</span>
             </div>
 
             {/* :::::::::::::::::::::::: CLOSE MODAL BUTTON */}
-            <button className='group absolute top-[1rem] right-[1rem] flex justify-center items-center h-[3rem] w-[3rem] rounded-[8px] hover:bg-teal-200 ease-250 '>
-              <RiCloseLine className='text-teal-900 text-[1rem] group-active:text-black ease-250 ' />
+            <button 
+              onClick={handleCloseModal}
+              className='group absolute top-[1rem] right-[1rem] flex justify-center items-center h-[3rem] w-[3rem] rounded-[8px] bg-teal-50 hover:bg-teal-900/10 ease-250 '
+            >
+              <RiCloseLine className='text-teal-900 text-[1.25rem] group-active:text-black ease-250 ' />
             </button>
           </div>
 
-          <button>Book</button>
+          <button className='flex items-center justify-center h-[3rem] w-full mx-auto bg-teal-700 text-white hover:bg-teal-900 hover:text-teal-200 rounded-[8px] '>Book</button>
         </div>
       </div>
     </>

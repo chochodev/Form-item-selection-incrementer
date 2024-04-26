@@ -185,7 +185,7 @@ const UploadEventComponent: React.FC<UploadEventComponentProps> = () => {
         />
       </label>
       }
-      <div className='flex flex-col gap-[2rem] max-h-[50%] '>
+      <div className='flex flex-col gap-[2rem] mx-auto max-w-[55rem] max-h-[50%] '>
         <p className='text-[1.25rem] font-bold text-slate-900'>Enter the Spaces Details as Follows </p>
         {items.map((item: any, index: number) => (
           <ItemAppendForm
@@ -199,7 +199,7 @@ const UploadEventComponent: React.FC<UploadEventComponentProps> = () => {
       </div>
       <button
         type="button"
-        className="flex items-center justify-center gap-[0.5rem] text-[1.25rem] font-semibold text-center h-[3rem] max-w-[45rem] w-full mb-[-1.5rem] border-solid border-[2px] border-green-500 bg-green-100 hover:bg-green-500 text-green-500 hover:text-white rounded-[8px] ease-250"
+        className="flex items-center justify-center gap-[0.5rem] text-[1.25rem] font-semibold text-center h-[3rem] max-w-[45rem] w-full mx-auto border-solid border-[2px] border-green-500 bg-green-100 hover:bg-green-500 text-green-500 hover:text-white rounded-[8px] ease-250"
         onClick={handleAddItem}
       >
         <p className='text-[0.875rem] '>Add Space</p>
@@ -208,7 +208,7 @@ const UploadEventComponent: React.FC<UploadEventComponentProps> = () => {
       <button
         type="submit"
         onClick={HandleSubmit}
-        className="flex items-center justify-center h-[3rem] max-w-[45rem] w-full bg-blue-500 text-white rounded-[8px] mt-[1rem]"
+        className="flex items-center justify-center h-[3rem] max-w-[45rem] w-full mx-auto bg-blue-500 text-white rounded-[8px] mt-[1rem]"
       >
         Submit
       </button>
