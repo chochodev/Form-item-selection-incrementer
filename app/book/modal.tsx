@@ -43,7 +43,7 @@ const Modal: React.FC<ModalProps> = ({
 
             <div className='flex flex-col gap-[0.5rem] w-[45%] bg-teal-50 border-solid border-[1px] border-teal-200 py-[0.875rem] px-[0.5rem] rounded-[8px] '>
               <p className='text-teal-600 text-[0.75rem] '>Price:</p>
-              <span className='text-teal-800 text-[1rem] '>{item.price}</span>
+              <span className='text-teal-800 text-[1rem] '>${item.price}</span>
             </div>
 
             <div className='flex flex-col gap-[0.5rem] w-[45%] bg-teal-50 border-solid border-[1px] border-teal-200 py-[0.875rem] px-[0.5rem] rounded-[8px] '>

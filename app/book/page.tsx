@@ -26,7 +26,7 @@ const Book = () => {
   }
 
   return (
-    <div className='flex sm:flex-col justify-center sm:justify-evenly w-full gap-[1rem] py-[2rem] '>
+    <div className='flex sm:flex-row justify-center sm:justify-evenly w-full gap-[1rem] py-[2rem] '>
       {floorContextImage && 
       // eslint-disable-next-line @next/next/no-img-element
       <img 
